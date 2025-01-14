@@ -1,0 +1,47 @@
+﻿<Window x:Class="UserInterface.Popups.Views.SheetAddPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserInterface.Popups.Views"
+        xmlns:vm="clr-namespace:UserInterface.Popups.ViewModels"
+        mc:Ignorable="d"
+        Title="Add/Edit Course"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        Height="250" Width="450">
+    <d:Window.DataContext>
+        <vm:SheetPopupVM />
+    </d:Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="5,5,5,5" />
+                <Setter Property="FontSize" Value="{StaticResource medFontSize}" />
+            </Style>
+            <Style TargetType="TextBlock" BasedOn="{StaticResource StandardMargin}">
+                <Setter Property="FontSize" Value="{StaticResource medFontSize}" />
+                <Setter Property="TextAlignment" Value="Right" />
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="{StaticResource medFontSize}" Command="{Binding SetSheetDates}">Set 2 weeks from last sheet</Button>
+        <TextBlock Grid.Row="1" Grid.Column="0">Start date:</TextBlock>
+        <DatePicker Grid.Row="1" Grid.Column="1" x:Name="startDatePicker" SelectedDate="{Binding StartDate, UpdateSourceTrigger=Explicit}" />
+        <TextBlock Grid.Row="2" Grid.Column="0">Due date:</TextBlock>
+        <DatePicker Grid.Row="2" Grid.Column="1" x:Name="dueDatePicker" SelectedDate="{Binding DueDate, UpdateSourceTrigger=Explicit}" />
+        <Button Grid.Row="3" Grid.Column="0" Click="CancelButton_Click" IsCancel="True">Cancel</Button>
+        <Button Grid.Row="3" Grid.Column="1" Click="OkButton_Click" IsDefault="True">OK</Button>
+    </Grid>
+</Window>

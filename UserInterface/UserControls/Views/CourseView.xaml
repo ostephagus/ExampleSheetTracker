@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="UserInterface.UserControls.Views.CourseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UserInterface.UserControls.Views"
+             xmlns:conv="clr-namespace:UserInterface.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <conv:BoolToVisibility x:Key="boolToVisibilityConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ListView ItemsSource="{Binding Items, Mode=OneWay}" d:Height="200">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="{StaticResource medFontSize}" Text=">" Visibility="{Binding IsCurrent, Converter={StaticResource boolToVisibilityConverter}}" />
+                        <TextBlock FontSize="{StaticResource medFontSize}" Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Grid.Row="1" Command="{Binding AddSheet}" FontSize="{StaticResource medFontSize}">Add Sheet</Button>
+    </Grid>
+</UserControl>
