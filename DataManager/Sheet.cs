@@ -87,15 +87,15 @@ namespace DataManager
             else return progressTotal / questionsCounted;
         }
 
-        public int GetDaysAhead()
+        public int? GetDaysAhead()
         {
-            if (!IsCurrent) return 0;
+            if (!IsCurrent) return null;
 
             double progress = GetProgress(false);
             double proportionOfTime = (DateOnly.FromDateTime(DateTime.Today).DayNumber - StartDate.DayNumber) / (double)(DueDate.DayNumber - StartDate.DayNumber);
 
             double daysAhead = progress - proportionOfTime;
-            return (int)Math.Round(daysAhead * (double)(DueDate.DayNumber - StartDate.DayNumber));
+            return (int)Math.Round(daysAhead * (DueDate.DayNumber - StartDate.DayNumber));
         }
     }
 }

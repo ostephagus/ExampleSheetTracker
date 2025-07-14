@@ -13,7 +13,7 @@ namespace DataManager
         public string SerialisationName { get => name; set => name = value; }
 
         [XmlIgnore]
-        public int DaysAhead { get => GetDaysAhead(); }
+        public int? DaysAhead { get => GetDaysAhead(); }
 
         public Course(string name, List<Sheet> sheets) : base(sheets)
         {
@@ -40,7 +40,7 @@ namespace DataManager
             list.RemoveAt(number);
         }
 
-        public int GetDaysAhead()
+        public int? GetDaysAhead()
         {
             foreach(Sheet sheet in list)
             {
@@ -49,7 +49,7 @@ namespace DataManager
                     return sheet.GetDaysAhead();
                 }
             }
-            return 0;
+            return null;
         }
     }
 }

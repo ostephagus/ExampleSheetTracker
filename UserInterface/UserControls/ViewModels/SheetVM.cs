@@ -15,7 +15,7 @@ namespace UserInterface.UserControls.ViewModels
 
         public double ProgressMaybe { get => underlyingClass?.GetProgress(true) ?? 0; }
         public double Progress { get => underlyingClass?.GetProgress(false) ?? 0; }
-        public int DaysAhead { get => underlyingClass?.GetDaysAhead() ?? 0; }
+        public int? DaysAhead { get => underlyingClass?.GetDaysAhead(); }
         public string ExpectedProgress { get => GetExpectedProgressStr(); }
         public DateOnly StartDate { get => underlyingClass?.StartDate ?? TODAY; }
         public DateOnly DueDate { get => underlyingClass?.DueDate ?? TODAY; }

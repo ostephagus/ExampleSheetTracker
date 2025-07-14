@@ -122,7 +122,7 @@
             <TextBlock />
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding DaysAhead, Converter={StaticResource daysAheadToTextConverter}}" d:Text="1 day ahead" />
+                <TextBlock Text="{Binding DaysAhead, Converter={StaticResource daysAheadToTextConverter}, ConverterParameter=False}" d:Text="1 day ahead" />
                 <TextBlock Text="{Binding ExpectedProgress}" d:Text="(expected 49%)" />
             </StackPanel>
 
