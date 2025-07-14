@@ -47,10 +47,14 @@ namespace DataManager
             list.RemoveAt(number);
         }
 
+        /// <summary>
+        /// Checks if the current date is within the sheet's set date and due date
+        /// </summary>
+        /// <returns><see cref="true"/> if the current date is after the set date, and before or the same as the due date; <see cref="false"/> otherwise.</returns>
         public bool CheckIsCurrent()
         {
             DateOnly today = DateOnly.FromDateTime(DateTime.Now);
-            return today > startDate && today < dueDate;
+            return today > startDate && today <= dueDate;
         }
 
         private double GetQuestionProgress(Question question)
