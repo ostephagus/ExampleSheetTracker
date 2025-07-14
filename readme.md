@@ -10,6 +10,7 @@ A hierarchy of terms, courses, sheets and questions are stored in an XML file th
 ### Next minor version (v1.0.1)
 - **Updates to progress display for courses**: Currently, if there is no active sheet an "on schedule" is displayed. It would be nice if this could just be blank.
 - **Finer question progress control**: I would like to, as well as the dropdown, be able to input a percentage of progress through the question for better control.
+- **Giving questions names**: For putting past paper assignments into the tracker, it is useful to be able to rename the usual Q1 to, e.g., 2022 Q3
 
 ### Next major version (v1.1)
 
