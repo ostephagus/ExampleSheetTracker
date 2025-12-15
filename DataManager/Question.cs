@@ -23,30 +23,33 @@ namespace DataManager
     /// </summary>
     public class Question : NamedItem
     {
-        private int number;
+        private string name;
         private bool starred;
         private Progress progress;
         private TriState doing;
 
         [XmlAttribute]
-        public int Number { get => number; set => number = value; }
+        public override string Name { get => name; set => name = value; }
         public bool Starred { get => starred; set => starred = value; }
         public Progress Progress { get => progress; set => progress = value; }
         public TriState Doing { get => doing; set => doing = value; }
 
-        [XmlIgnore]
-        public override string Name { get => $"Q{number}"; }
 
-        public Question(int number, bool starred, Progress progress, TriState doing)
+        public Question(string number, bool starred, Progress progress, TriState doing)
         {
-            this.number = number;
+            this.name = number;
             this.starred = starred;
             this.progress = progress;
             this.doing = doing;
         }
 
-        public Question(int number) : this(number, false, Progress.NotStarted, TriState.Yes) { }
+        public Question(string number) : this(number, false, Progress.NotStarted, TriState.Yes) { }
 
-        public Question() : this(1) { }
+        public Question() : this("1") { }
+
+        public void Rename(string newName)
+        {
+            name = newName;
+        }
     }
 }

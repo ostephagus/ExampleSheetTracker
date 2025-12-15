@@ -17,7 +17,7 @@ namespace UserInterface.Popups.ViewModels
         {
             while (newCount > underlyingClass.List.Count)
             {
-                underlyingClass.List.Add(new Question(underlyingClass.List.Count + 1)); // Add questions until there is enough
+                underlyingClass.List.Add(new Question($"Q{underlyingClass.List.Count + 1}")); // Add questions until there is enough
             }
 
             while (newCount < underlyingClass.List.Count)

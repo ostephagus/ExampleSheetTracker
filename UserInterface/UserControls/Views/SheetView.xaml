@@ -61,10 +61,10 @@
             </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="" Width="50">
+                    <GridViewColumn Header="" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Name}" FontSize="{StaticResource medFontSize}" />
+                                <TextBox Text="{Binding Name}" FontSize="{StaticResource medFontSize}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

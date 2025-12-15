@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace DataManager
 {
@@ -23,7 +24,7 @@ namespace DataManager
         public int Number { get => number; set => number = value; }
 
         [XmlIgnore]
-        public override string Name { get => $"Sheet {number}"; }
+        public override string Name { get => $"Sheet {number}"; set => throw new InvalidOperationException("Set the sheet's number instead."); }
 
         [XmlIgnore]
         public bool IsCurrent { get => CheckIsCurrent(); }
@@ -40,7 +41,6 @@ namespace DataManager
         public override void AddItem(Question question)
         {
             list.Add(question);
-            list.Sort(new Comparison<Question>((q1, q2) => q1.Number - q2.Number));
         }
         public override void RemoveItem(int number)
         {

@@ -17,7 +17,7 @@ namespace DataManager
         public TermName TermName { get => termName; set => termName = value; }
 
         [XmlIgnore]
-        public override string Name { get => termName.ToString(); }
+        public override string Name { get => termName.ToString(); set => Enum.Parse(typeof(TermName), value); }
 
         public Term(TermName termName, List<Course> courses) : base(courses)
         {

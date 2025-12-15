@@ -2,7 +2,7 @@
 {
     public class PartList : NamedList<Part>
     {
-        public override string Name => "home";
+        public override string Name { get => "home"; set => throw new InvalidOperationException("The part list cannot be renamed."); }
 
         public override void AddItem(Part part)
         {

@@ -1,7 +1,10 @@
-﻿namespace DataManager
+﻿using System.Xml.Serialization;
+
+namespace DataManager
 {
     public abstract class NamedItem
     {
-        public abstract string Name { get; }
+        [XmlIgnore]
+        public abstract string Name { get; set; }
     }
 }

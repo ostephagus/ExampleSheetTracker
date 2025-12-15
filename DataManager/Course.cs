@@ -7,7 +7,7 @@ namespace DataManager
         private string name;
 
         [XmlIgnore]
-        public override string Name { get => name; }
+        public override string Name { get => name; set => name = value; }
 
         [XmlAttribute("CourseName")]
         public string SerialisationName { get => name; set => name = value; }

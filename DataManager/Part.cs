@@ -18,7 +18,7 @@ namespace DataManager
         public PartName PartName { get => partName; set => partName = value; }
 
         [XmlIgnore]
-        public override string Name { get => partName.ToString(); }
+        public override string Name { get => partName.ToString(); set => Enum.Parse(typeof(PartName), value); }
 
         public Part(PartName partName, List<Term> terms) : base(terms)
         {
